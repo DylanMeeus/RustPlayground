@@ -1,0 +1,1 @@
+/home/dylan/Development/Code/Rust/playground/ProgrammingRust/chapter2/mandlebrot/target/release/mandlebrot: /home/dylan/Development/Code/Rust/playground/ProgrammingRust/chapter2/mandlebrot/src/main.rs
