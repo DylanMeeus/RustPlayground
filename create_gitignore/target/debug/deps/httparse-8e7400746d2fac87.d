@@ -1,0 +1,12 @@
+/home/dylan/Development/Code/Rust/playground/create_gitignore/target/debug/deps/httparse-8e7400746d2fac87.rmeta: /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.3.6/src/lib.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.3.6/src/iter.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.3.6/src/macros.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.3.6/src/simd/mod.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.3.6/src/simd/sse42.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.3.6/src/simd/avx2.rs
+
+/home/dylan/Development/Code/Rust/playground/create_gitignore/target/debug/deps/libhttparse-8e7400746d2fac87.rlib: /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.3.6/src/lib.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.3.6/src/iter.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.3.6/src/macros.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.3.6/src/simd/mod.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.3.6/src/simd/sse42.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.3.6/src/simd/avx2.rs
+
+/home/dylan/Development/Code/Rust/playground/create_gitignore/target/debug/deps/httparse-8e7400746d2fac87.d: /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.3.6/src/lib.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.3.6/src/iter.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.3.6/src/macros.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.3.6/src/simd/mod.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.3.6/src/simd/sse42.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.3.6/src/simd/avx2.rs
+
+/home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.3.6/src/lib.rs:
+/home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.3.6/src/iter.rs:
+/home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.3.6/src/macros.rs:
+/home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.3.6/src/simd/mod.rs:
+/home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.3.6/src/simd/sse42.rs:
+/home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.3.6/src/simd/avx2.rs:

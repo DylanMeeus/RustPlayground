@@ -1,0 +1,12 @@
+/home/dylan/Development/Code/Rust/playground/create_gitignore/target/debug/deps/cookie-f04c05e7831ef35d.rmeta: /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.12.0/src/lib.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.12.0/src/builder.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.12.0/src/parse.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.12.0/src/jar.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.12.0/src/delta.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.12.0/src/draft.rs
+
+/home/dylan/Development/Code/Rust/playground/create_gitignore/target/debug/deps/libcookie-f04c05e7831ef35d.rlib: /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.12.0/src/lib.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.12.0/src/builder.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.12.0/src/parse.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.12.0/src/jar.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.12.0/src/delta.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.12.0/src/draft.rs
+
+/home/dylan/Development/Code/Rust/playground/create_gitignore/target/debug/deps/cookie-f04c05e7831ef35d.d: /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.12.0/src/lib.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.12.0/src/builder.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.12.0/src/parse.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.12.0/src/jar.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.12.0/src/delta.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.12.0/src/draft.rs
+
+/home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.12.0/src/lib.rs:
+/home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.12.0/src/builder.rs:
+/home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.12.0/src/parse.rs:
+/home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.12.0/src/jar.rs:
+/home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.12.0/src/delta.rs:
+/home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.12.0/src/draft.rs:

@@ -1,0 +1,11 @@
+/home/dylan/Development/Code/Rust/playground/create_gitignore/target/debug/deps/tokio_reactor-845aec49dfc17abf.rmeta: /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-reactor-0.1.12/src/lib.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-reactor-0.1.12/src/background.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-reactor-0.1.12/src/poll_evented.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-reactor-0.1.12/src/registration.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-reactor-0.1.12/src/sharded_rwlock.rs
+
+/home/dylan/Development/Code/Rust/playground/create_gitignore/target/debug/deps/libtokio_reactor-845aec49dfc17abf.rlib: /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-reactor-0.1.12/src/lib.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-reactor-0.1.12/src/background.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-reactor-0.1.12/src/poll_evented.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-reactor-0.1.12/src/registration.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-reactor-0.1.12/src/sharded_rwlock.rs
+
+/home/dylan/Development/Code/Rust/playground/create_gitignore/target/debug/deps/tokio_reactor-845aec49dfc17abf.d: /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-reactor-0.1.12/src/lib.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-reactor-0.1.12/src/background.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-reactor-0.1.12/src/poll_evented.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-reactor-0.1.12/src/registration.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-reactor-0.1.12/src/sharded_rwlock.rs
+
+/home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-reactor-0.1.12/src/lib.rs:
+/home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-reactor-0.1.12/src/background.rs:
+/home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-reactor-0.1.12/src/poll_evented.rs:
+/home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-reactor-0.1.12/src/registration.rs:
+/home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-reactor-0.1.12/src/sharded_rwlock.rs:

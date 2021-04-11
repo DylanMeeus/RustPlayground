@@ -1,0 +1,13 @@
+/home/dylan/Development/Code/Rust/playground/create_gitignore/target/debug/deps/url-f8cde0d65f8c9ba5.rmeta: /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/lib.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/host.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/origin.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/parser.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/path_segments.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/slicing.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/quirks.rs
+
+/home/dylan/Development/Code/Rust/playground/create_gitignore/target/debug/deps/liburl-f8cde0d65f8c9ba5.rlib: /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/lib.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/host.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/origin.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/parser.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/path_segments.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/slicing.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/quirks.rs
+
+/home/dylan/Development/Code/Rust/playground/create_gitignore/target/debug/deps/url-f8cde0d65f8c9ba5.d: /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/lib.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/host.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/origin.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/parser.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/path_segments.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/slicing.rs /home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/quirks.rs
+
+/home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/lib.rs:
+/home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/host.rs:
+/home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/origin.rs:
+/home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/parser.rs:
+/home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/path_segments.rs:
+/home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/slicing.rs:
+/home/dylan/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.2.1/src/quirks.rs:
