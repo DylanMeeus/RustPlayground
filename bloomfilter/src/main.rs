@@ -6,12 +6,13 @@ use hex;
 use std::i64;
 
 fn main() {
-    let mut filter = new_bloom_filter(128);
-    println!("{}", &filter);
-
-    filter.insert("hello");
-
-    println!("{}", &filter);
+    let mut filter = new_bloom_filter(1_000_000);
+    for i in 0..10_200_000 {
+        filter.insert(&i.to_string());
+    }
+    for i in 0..10_300_000 {
+        filter.contains(&i.to_string());
+    }
 }
 
 
@@ -33,6 +34,11 @@ impl BloomFilter {
         hasher.result(&mut buff);
         let num = u128::from_be_bytes(buff);
         num.checked_rem(self.n as u128).unwrap() as usize
+    }
+
+    fn contains(&mut self, s: &str) -> bool {
+        let idx = self.hash(s);
+        self.field[idx]
     }
 }
 
