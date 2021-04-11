@@ -7,12 +7,14 @@ use std::i64;
 
 fn main() {
     let mut filter = new_bloom_filter(1_000_000);
+    /*
     for i in 0..10_200_000 {
         filter.insert(&i.to_string());
     }
     for i in 0..10_300_000 {
         filter.contains(&i.to_string());
     }
+    */
 }
 
 
@@ -22,12 +24,12 @@ struct BloomFilter {
 }
 
 impl BloomFilter {
-    fn insert(&mut self, s: &str) -> () {
+    fn insert<'a, 'b>(& 'b mut self, s: & 'a str) -> () {
         let idx = self.hash(s);
         self.field[idx] = true;
     }
 
-    fn hash(&self, s: &str) -> usize {
+    fn hash<'a, 'b> (& 'b self, s: & 'a str) -> usize {
         let mut hasher = Md5::new();
         hasher.input(s.as_bytes());
         let mut buff = [0; 16];
@@ -36,7 +38,7 @@ impl BloomFilter {
         num.checked_rem(self.n as u128).unwrap() as usize
     }
 
-    fn contains(&mut self, s: &str) -> bool {
+    fn contains<'a, 'b>(& 'b mut self, s: & 'a str) -> bool {
         let idx = self.hash(s);
         self.field[idx]
     }
