@@ -2,12 +2,16 @@ use enigma::{create_plugboard, rotor};
 
 #[allow(non_camel_case_types)]
 #[allow(dead_code)]
-mod enigma {
 
+mod enigma {
     use std::fs;
+
+    type rotor_pins = (u8, u8);
+
     pub struct rotor {
         // rotor configuration
-        pub id: String
+        pub id: String,
+        pub pins: Vec<rotor_pins> 
     }
 
     pub struct plugboard {
@@ -28,23 +32,25 @@ mod enigma {
     }
 
     pub struct enigma_machine {
-        plugboard: plugboard,
-        rotors: Vec<rotor>
+        pub plugboard: plugboard,
+        pub rotors: Vec<rotor>
     }
 
-    /*
     pub fn create_machine() -> enigma_machine {
-        return enigma_machine{}
+        let first_rotor = rotor {
+            id: "A".to_string(),
+            pins: vec![(1,2)]
+        };
+
+        let rs = vec![first_rotor];
+
+        let pboard = create_plugboard("src/plug.board".to_string());
+        enigma_machine{plugboard: pboard, rotors: rs}
     }
-    */
 
 }
 
 fn main() {
-
-    let r = enigma::rotor{id: "hello".to_string()};
-    println!("{:?}", r.id);
-
-    enigma::create_plugboard("plug.board".to_string());
-
+    let machine = enigma::create_machine();
+    println!("{:?}", machine.rotors[0].pins[0]);
 }
