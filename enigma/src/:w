@@ -30,9 +30,8 @@ mod enigma {
 
         let mut pins: Vec<pins> = vec!();
         for i in base.zip(map) {
-            let ci = char_to_idx(i.0.chars().next().unwrap());
-            let ci2 = char_to_idx(i.1.chars().next().unwrap());
-            pins.push((ci, ci2));
+            let ci = char_to_idx(i.0.chars().next().unwrap()));
+            let ci2 = char_to_idx(i.1.chars().next().unwrap()));
         }
 
         plugboard{plugs: pins}
