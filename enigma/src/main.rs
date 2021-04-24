@@ -13,7 +13,8 @@ mod enigma {
     pub struct rotor {
         // rotor configuration
         pub id: String,
-        pub wiring: Vec<rotor_pins> 
+        pub wiring: Vec<rotor_pins> ,
+        pub position: u8
     }
 
     pub struct plugboard {
@@ -43,6 +44,22 @@ mod enigma {
         pub rotors: Vec<rotor>
     }
 
+
+    impl enigma_machine {
+        pub fn encrypt(&self, input: String) {
+            println!("{:?}", input);
+        }
+
+        pub fn get_rotor(&mut self, ID: String) -> Option<&mut rotor> {
+            for (i, r) in self.rotors.iter().enumerate() {
+                if r.id == ID {
+                    return Some(&mut self.rotors[i])
+                }
+            }
+            None
+        }
+    }
+
     pub fn char_to_idx(c: char) -> u8 {
         // todo: add checks to verify c is in range [aA-zZ]
         let ci = c as u8;
@@ -62,17 +79,25 @@ mod enigma {
             collect()
     }
 
+    fn create_rotor(name: String, input: Vec<char>) -> rotor {
+        let rotor_wiring = create_rotor_wiring(input);
+        rotor {
+            id: name,
+            wiring: rotor_wiring,
+            position: 0
+        }
+    }
+
     /// create_machine constructs an enigma machine with rotor configurations from:
     /// https://en.wikipedia.org/wiki/Enigma_rotor_details
     pub fn create_machine() -> enigma_machine {
         let IC = vec!['D','M','T','W','S','I','L','R','U','Y','Q','N','K','F','E','J','C','A','Z','B','P','G','X','O','H','V'];
-        let IC_wiring = create_rotor_wiring(IC);
-        let first_rotor = rotor {
-            id: "IC".to_string(),
-            wiring: IC_wiring 
-        };
+        let first_rotor = create_rotor("IC".to_string(), IC);
 
-        let rs = vec![first_rotor];
+        let IIC = vec!['H','Q','Z','G','P','J','T','M','O','B','L','N','C','I','F','D','Y','A','W','V','E','U','S','R','K','X'];
+        let second_rotor = create_rotor("IIC".to_string(), IIC);
+
+        let rs = vec![first_rotor, second_rotor];
         let pboard = create_plugboard("src/plug.board".to_string());
         enigma_machine{plugboard: pboard, rotors: rs}
     }
@@ -80,6 +105,10 @@ mod enigma {
 }
 
 fn main() {
-    let machine = enigma::create_machine();
-    println!("{:?}", machine.rotors[0].wiring[0]);
+    let mut machine = enigma::create_machine();
+    machine.encrypt("hello".to_string());
+    match machine.get_rotor("IC".to_string()) {
+        Some(r) => println!("{}", r.id),
+        None => println!("oopsie")
+    };
 }
