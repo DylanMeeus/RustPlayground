@@ -40,8 +40,15 @@ impl rotor {
         self.position = new_pos;
     }
 
-    pub fn incr_pos(&mut self) {
+    /// incr_pos returns true if the position was reset, otherwise false
+    /// TODO: do this smarter
+    pub fn incr_pos(&mut self) -> bool {
         self.position += 1;
+        if self.position >= 26 {
+            self.position = 0;
+            return true;
+        }
+        return false;
     }
 
     pub fn map(&self, input: char) -> char {
@@ -50,7 +57,7 @@ impl rotor {
                 return w.1;
             }
         }
-        return 'c';
+        return '_';
     }
 
 }

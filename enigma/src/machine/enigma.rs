@@ -3,7 +3,7 @@ use std::fs;
 #[allow(non_camel_case_types)]
 #[allow(dead_code)]
 #[allow(non_snake_case)]
-type pins = (u8, u8);
+type pins = (char, char);
 
 use super::rotors;
 use super::tools;
@@ -13,17 +13,28 @@ pub struct plugboard {
     plugs: Vec<pins>
 }
 
+impl plugboard {
+    pub fn map(&self, input: char) -> char {
+        for w in &self.plugs{
+            if w.0 == input {
+                return w.1;
+            }
+        }
+        return '_';
+    }
+}
+
 /// create_plugboard reads the plugboard configuration in the provided file
 pub fn create_plugboard(filename: String) -> plugboard {
     let input = fs::read_to_string(filename).expect("could not read file");
-    let lines: Vec<String> = input.split("\n").map(str::to_string).collect();
+    let lines: Vec<String> = input.to_uppercase().split("\n").map(str::to_string).collect();
     let base = lines[0].split(" ");
     let map = lines[1].split(" ");
 
     let mut pins: Vec<pins> = vec!();
     for i in base.zip(map) {
-        let ci = tools::char_to_idx(i.0.chars().next().unwrap());
-        let ci2 = tools::char_to_idx(i.1.chars().next().unwrap());
+        let ci = i.0.chars().next().unwrap();
+        let ci2 = i.1.chars().next().unwrap();
         pins.push((ci, ci2));
     }
 
@@ -43,8 +54,12 @@ impl enigma_machine {
 
         // send each char through the rotors
         for c in chars {
-            let mut result = c;
-            for rotor in &self.rotors {
+            // first we send it through the plugboard.. 
+            let pc = self.plugboard.map(c);
+            println!("plugboard {} --> {}", c, pc);
+
+            let mut result = pc;
+            for rotor in &mut self.rotors {
                 result = rotor.map(result);
             }
             println!("mapped {} to char: {}", c, result);
