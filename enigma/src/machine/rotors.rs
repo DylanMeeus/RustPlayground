@@ -1,4 +1,5 @@
 type rotor_pins = (char, char);
+
 pub struct rotor {
     // rotor configuration
     pub id: String,
@@ -37,6 +38,19 @@ impl rotor {
 
     pub fn set_pos(&mut self, new_pos: u8) {
         self.position = new_pos;
+    }
+
+    pub fn incr_pos(&mut self) {
+        self.position += 1;
+    }
+
+    pub fn map(&self, input: char) -> char {
+        for w in &self.wiring {
+            if w.0 == input {
+                return w.1;
+            }
+        }
+        return 'c';
     }
 
 }

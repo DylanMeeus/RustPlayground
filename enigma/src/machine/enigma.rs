@@ -39,13 +39,15 @@ pub struct enigma_machine {
 impl enigma_machine {
 
     pub fn encrypt(&mut self, input: String) {
-        let chars: Vec<String> = input.split("").map(str::to_string).collect();
+        let chars: Vec<char> = input.to_uppercase().chars().collect();
 
         // send each char through the rotors
         for c in chars {
+            let mut result = c;
             for rotor in &self.rotors {
-                println!("{:?}", rotor.id);
+                result = rotor.map(result);
             }
+            println!("mapped {} to char: {}", c, result);
         }
     }
 
