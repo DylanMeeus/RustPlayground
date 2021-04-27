@@ -91,6 +91,23 @@ impl rotor {
         incr(&mut self.input_pin_position);
     }
 
+    pub fn get_input_at_pin(&self, pin: u8) -> char {
+        self.get_char_at_pin(pin, &self.input_pin_position)
+    }
+
+    pub fn get_output_at_pin(&self, pin: u8) -> char {
+        self.get_char_at_pin(pin, &self.output_pin_position)
+    }
+
+    fn get_char_at_pin(&self, pin: u8, pins : &HashMap<char, u8>) -> char {
+        for (k,v) in pins {
+            if *v == pin {
+                return *k;
+            }
+        }
+        panic!("At the disco");
+    }
+
 
     pub fn map(&self, input: char) -> char {
         for w in &self.wiring {
