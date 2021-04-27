@@ -6,7 +6,7 @@ fn main() {
     match machine.get_rotor("IC".to_string()) {
         Some(r) => {
             println!("{}", r.position);
-            r.set_pos(12);
+            r.incr_pos();
             println!("{}", r.position);
 
         },

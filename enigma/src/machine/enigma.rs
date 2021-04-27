@@ -22,6 +22,7 @@ impl plugboard {
         }
         return '_';
     }
+
 }
 
 /// create_plugboard reads the plugboard configuration in the provided file

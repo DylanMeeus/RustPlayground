@@ -1,10 +1,15 @@
+use std::collections::HashMap;
+
 type rotor_pins = (char, char);
 
 pub struct rotor {
     // rotor configuration
     pub id: String,
     pub wiring: Vec<rotor_pins> ,
-    pub position: u8 // current rotor position (0->26)
+    pub position: u8, // current rotor position (0->26)
+
+    pub input_pin_position: HashMap<char, u8>,
+    pub output_pin_position: HashMap<char, u8>
 }
 
 
@@ -24,12 +29,31 @@ fn create_rotor_wiring(input: Vec<char>) -> Vec<rotor_pins> {
         collect()
 }
 
+pub fn create_input_output_maps(rp: Vec<rotor_pins>) -> (HashMap<char,u8>, HashMap<char,u8>)  {
+
+    let mut input_map : HashMap<char, u8> = HashMap::new();
+    let mut output_map : HashMap<char, u8> = HashMap::new();
+
+    for (idx, tuple) in rp.iter().enumerate() {
+        input_map.insert(tuple.0, idx as u8);
+        output_map.insert(tuple.1, idx as u8);
+    }
+
+    (input_map, output_map)
+
+}
+
 pub fn create_rotor(name: String, input: Vec<char>) -> rotor {
     let rotor_wiring = create_rotor_wiring(input);
+    
+    let (input,output) = create_input_output_maps(rotor_wiring.clone());
+
     rotor {
         id: name,
         wiring: rotor_wiring,
-        position: 0
+        position: 0,
+        input_pin_position: input,
+        output_pin_position: output
     }
 }
 
@@ -44,12 +68,29 @@ impl rotor {
     /// TODO: do this smarter
     pub fn incr_pos(&mut self) -> bool {
         self.position += 1;
+        self.incr_pin_positions();
         if self.position >= 26 {
             self.position = 0;
             return true;
         }
         return false;
     }
+
+    pub fn incr_pin_positions(&mut self) {
+        fn incr(pins: &mut HashMap<char, u8>) {
+            println!("{:?}", pins);
+            for val in pins.values_mut() {
+                if *val != 25 {
+                    *val += 1;
+                } else {
+                    *val = 0;
+                }
+            }
+            println!("{:?}", pins);
+        }
+        incr(&mut self.input_pin_position);
+    }
+
 
     pub fn map(&self, input: char) -> char {
         for w in &self.wiring {
