@@ -19,18 +19,17 @@ pub struct rotor {
 fn create_rotor_wiring(input: Vec<char>) -> Vec<rotor_pins> {
     let mut idx = 0;
     let alph = vec!['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+
     input.into_iter()
         .map(|x| { 
             let r = (alph[idx], x);
             idx += 1;
             r
         }).
-
         collect()
 }
 
 pub fn create_input_output_maps(rp: Vec<rotor_pins>) -> (HashMap<char,u8>, HashMap<char,u8>)  {
-
     let mut input_map : HashMap<char, u8> = HashMap::new();
     let mut output_map : HashMap<char, u8> = HashMap::new();
 
@@ -114,7 +113,7 @@ impl rotor {
                 return w.0;
             }
         }
-        return '_'; // todo: handle errors here
+        panic!("char not found");
     }
 
     pub fn map(&self, input: char) -> char {
@@ -123,7 +122,7 @@ impl rotor {
                 return w.1;
             }
         }
-        return '_';
+        panic!("char not found");
     }
 
 }

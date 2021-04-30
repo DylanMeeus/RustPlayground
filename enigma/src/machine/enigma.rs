@@ -107,11 +107,10 @@ impl enigma_machine {
                 output.push(' ');
                 continue;
             }
+
             // first we send it through the plugboard.. 
             let pc = self.plugboard.map(c);
-            //println!("plugboard {} --> {}", c, pc);
             let mut connector = self.plugboard.output_to_static_rotor.get(&pc).unwrap();
-            //println!("static output pin {} --> {}", pc, connector);
 
             let mut result = pc;
             for rotor in &mut self.rotors {
@@ -119,15 +118,13 @@ impl enigma_machine {
                 result = rotor.map(current_char);
                 connector = rotor.output_pin_position.get(&result).unwrap();
             }
-            // println!("mapped {} to char: {}", c, result);
 
-            // todo: implement reflector! 
             result = *self.reflector.mapping.get(&result).unwrap();
+
             // calculate the pin at which result enters.. 
             let tmp = tools::char_to_idx(result);
             connector = &tmp;
 
-            //println!("result before reflector-passthrough: {}", result);
             for n in (0..self.rotors.len()).rev() {
                 let rotor = &self.rotors[n];
                 let current_char = rotor.get_output_at_pin(*connector);
@@ -135,12 +132,9 @@ impl enigma_machine {
                 //println!("char at current output: {} connects to {}", current_char, result);
                 connector = rotor.output_pin_position.get(&result).unwrap();
             }
-            //println!("result after reflector-passthrough: {}", result);
 
             output.push(result.clone());
         }
-
-
 
         output.into_iter().collect()
     }
