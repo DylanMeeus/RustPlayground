@@ -16,42 +16,11 @@ pub struct plugboard {
 }
 
 pub struct reflector {
-    pub mapping: HashMap<char, char>
+    pub mapping: Vec<pins>
 }
 
 /// create_reflector constructs a bidirectional mapping
-pub fn create_reflector() -> reflector {
-
-    let m: HashMap<char, char> = HashMap::new()
-    m.insert('A', 'E');
-    m.insert('B', 'J');
-    m.insert('C', 'K');
-    m.insert('D', 'Y');
-    m.insert('E', 'A');
-    m.insert('F', 'P');
-    m.insert('G', 'H');
-    m.insert('H', 'G');
-    m.insert('I', 'L');
-    m.insert('J', 'B');
-    m.insert('K', 'C');
-    m.insert('L', 'I');
-    m.insert('M', 'Q');
-    m.insert('N', 'T');
-    m.insert('O', 'S');
-    m.insert('P', 'F');
-    m.insert('Q', 'M');
-    m.insert('R', 'W');
-    m.insert('S', 'O');
-    m.insert('T', 'N');
-    m.insert('U', 'V');
-    m.insert('V', 'U');
-    m.insert('W', 'R');
-    m.insert('X', 'Z');
-    m.insert('Y', 'D');
-    m.insert('Z', 'X');
-    reflector{
-
-    }
+pub fn create_reflector() {
     
 }
 

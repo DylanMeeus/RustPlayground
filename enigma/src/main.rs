@@ -1,8 +1,15 @@
 mod machine;
 
 fn main() {
-    let mut machine = machine::enigma::create_machine();
-    machine.encrypt("hello".to_string());
+    let mut encrypt_machine = machine::enigma::create_machine();
+    let encrypted = encrypt_machine.encrypt("HELLO".to_string());
+
+    println!("{:?}", encrypted);
+
+    let mut decrypt_machine = machine::enigma::create_machine();
+    let decrypted = decrypt_machine.encrypt(encrypted);
+    println!("{:?}", decrypted);
+    /*
     match machine.get_rotor("IC".to_string()) {
         Some(r) => {
             println!("{}", r.position);
@@ -13,4 +20,5 @@ fn main() {
         },
         None => println!("oopsie")
     };
+    */
 }
