@@ -22,7 +22,7 @@ pub struct reflector {
 /// create_reflector constructs a bidirectional mapping
 pub fn create_reflector() -> reflector {
 
-    let m: HashMap<char, char> = HashMap::new()
+    let mut m: HashMap<char, char> = HashMap::new();
     m.insert('A', 'E');
     m.insert('B', 'J');
     m.insert('C', 'K');
@@ -50,7 +50,7 @@ pub fn create_reflector() -> reflector {
     m.insert('Y', 'D');
     m.insert('Z', 'X');
     reflector{
-
+        mapping: m
     }
     
 }
@@ -89,6 +89,7 @@ pub fn create_plugboard(filename: String) -> plugboard {
 
 pub struct enigma_machine {
     pub plugboard: plugboard,
+    pub reflector: reflector,
     pub rotors: Vec<rotors::rotor>
 }
 
@@ -103,9 +104,9 @@ impl enigma_machine {
         for c in chars {
             // first we send it through the plugboard.. 
             let pc = self.plugboard.map(c);
-            // println!("plugboard {} --> {}", c, pc);
+            println!("plugboard {} --> {}", c, pc);
             let mut connector = self.plugboard.output_to_static_rotor.get(&pc).unwrap();
-            // println!("static output pin {} --> {}", pc, connector);
+            //println!("static output pin {} --> {}", pc, connector);
 
             let mut result = pc;
             for rotor in &mut self.rotors {
@@ -115,11 +116,27 @@ impl enigma_machine {
             }
             // println!("mapped {} to char: {}", c, result);
 
-            output.push(result.clone());
             // todo: implement reflector! 
-            
+            result = *self.reflector.mapping.get(&result).unwrap();
+            // calculate the pin at which result enters.. 
+            let tmp = tools::char_to_idx(result);
+            connector = &tmp;
 
+            println!("result before reflector-passthrough: {}", result);
+            for n in (0..self.rotors.len()).rev() {
+                let rotor = &self.rotors[n];
+                let current_char = rotor.get_output_at_pin(*connector);
+                result = rotor.reflector_map(current_char);
+                //println!("char at current output: {} connects to {}", current_char, result);
+                connector = rotor.output_pin_position.get(&result).unwrap();
+                println!("{}", connector);
+            }
+            println!("result after reflector-passthrough: {}", result);
+
+            output.push(result.clone());
         }
+
+
 
         output.into_iter().collect()
     }
@@ -145,6 +162,6 @@ pub fn create_machine() -> enigma_machine {
     let second_rotor = rotors::create_rotor("IIC".to_string(), IIC);
 
     let rs = vec![first_rotor, second_rotor];
-    let pboard = create_plugboard("src/plug.board".to_string());
-    enigma_machine{plugboard: pboard, rotors: rs}
+    let pboard = create_plugboard("src/plug2.board".to_string());
+    enigma_machine{plugboard: pboard, rotors: rs, reflector: create_reflector()}
 }

@@ -109,6 +109,17 @@ impl rotor {
         panic!("At the disco");
     }
 
+    /// reflector_map is the mapping after passing through the reflector
+    pub fn reflector_map(&self, output_char: char) -> char {
+        for w in &self.wiring {
+            if w.1 == output_char {
+                println!("{:?}", w);
+                return w.0;
+            }
+        }
+        return '_'; // todo: handle errors here
+    }
+
     pub fn map(&self, input: char) -> char {
         for w in &self.wiring {
             if w.0 == input {
