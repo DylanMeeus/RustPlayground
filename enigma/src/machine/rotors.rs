@@ -103,7 +103,7 @@ impl rotor {
                 return *k;
             }
         }
-        panic!("At the disco");
+        panic!("Char not found");
     }
 
     /// reflector_map is the mapping after passing through the reflector

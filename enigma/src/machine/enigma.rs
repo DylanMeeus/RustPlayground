@@ -15,6 +15,27 @@ pub struct plugboard {
     pub output_to_static_rotor: HashMap<char, u8>
 }
 
+impl plugboard {
+    pub fn map(&self, input: char) -> char {
+        for w in &self.plugs{
+            if w.0 == input {
+                return w.1;
+            }
+        }
+        return '_';
+    }
+
+    pub fn contains_char(&self, input: char) -> bool {
+        for w in &self.plugs {
+            if w.0 == input || w.1 == input {
+                return true;
+            }
+        }
+        false
+    }
+
+}
+
 pub struct reflector {
     pub mapping: HashMap<char, char>
 }
@@ -55,17 +76,6 @@ pub fn create_reflector() -> reflector {
     
 }
 
-impl plugboard {
-    pub fn map(&self, input: char) -> char {
-        for w in &self.plugs{
-            if w.0 == input {
-                return w.1;
-            }
-        }
-        return '_';
-    }
-}
-
 /// create_plugboard reads the plugboard configuration in the provided file
 pub fn create_plugboard(filename: String) -> plugboard {
     let input = fs::read_to_string(filename).expect("could not read file");
@@ -102,9 +112,14 @@ impl enigma_machine {
         let mut output: Vec<char> = vec!();
         // send each char through the rotors
         for c in chars {
-
             if c == ' ' {
                 output.push(' ');
+                continue;
+            }
+
+            // if the character is not in the static board, we just append it as-is
+            if !self.plugboard.contains_char(c) {
+                output.push(c);
                 continue;
             }
 

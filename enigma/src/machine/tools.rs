@@ -1,3 +1,5 @@
+/// char_to_idx returns the u8 position of the character in the alphabet, 0-indexed and
+/// case-insensitive
 pub fn char_to_idx(c: char) -> u8 {
     // todo: add checks to verify c is in range [aA-zZ]
     let ci = c as u8;
