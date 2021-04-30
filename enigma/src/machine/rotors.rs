@@ -78,7 +78,6 @@ impl rotor {
 
     pub fn incr_pin_positions(&mut self) {
         fn incr(pins: &mut HashMap<char, u8>) {
-            println!("{:?}", pins);
             for val in pins.values_mut() {
                 if *val != 25 {
                     *val += 1;
@@ -86,7 +85,6 @@ impl rotor {
                     *val = 0;
                 }
             }
-            println!("{:?}", pins);
         }
         incr(&mut self.input_pin_position);
     }
@@ -113,7 +111,6 @@ impl rotor {
     pub fn reflector_map(&self, output_char: char) -> char {
         for w in &self.wiring {
             if w.1 == output_char {
-                println!("{:?}", w);
                 return w.0;
             }
         }
