@@ -35,8 +35,9 @@ pub fn create_input_output_maps(rp: Vec<rotor_pins>) -> (HashMap<char,u8>, HashM
 
     for (idx, tuple) in rp.iter().enumerate() {
         input_map.insert(tuple.0, idx as u8);
-        output_map.insert(tuple.1, idx as u8);
+        output_map.insert(tuple.0, idx as u8);
     }
+
 
     (input_map, output_map)
 
@@ -66,9 +67,10 @@ impl rotor {
     /// incr_pos returns true if the position was reset, otherwise false
     /// TODO: do this smarter
     pub fn incr_pos(&mut self) -> bool {
+        // todo: this only works for rotors that start in the default configuration for now
         self.position += 1;
         self.incr_pin_positions();
-        if self.position >= 26 {
+        if self.position >= 25 {
             self.position = 0;
             return true;
         }
@@ -86,6 +88,7 @@ impl rotor {
             }
         }
         incr(&mut self.input_pin_position);
+        incr(&mut self.output_pin_position);
     }
     
 

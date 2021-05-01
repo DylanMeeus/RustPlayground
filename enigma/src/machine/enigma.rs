@@ -106,6 +106,18 @@ pub struct enigma_machine {
 
 impl enigma_machine {
 
+    fn rotate_rotors(&mut self) {
+        let mut should_rotate = true;
+        for i in 0..self.rotors.len() {
+            if should_rotate {
+                let r = &mut self.rotors[i];
+                should_rotate = r.incr_pos();
+            } else {
+                return;
+            }
+        }
+    }
+
     pub fn encrypt(&mut self, input: String) -> String {
         let chars: Vec<char> = input.to_uppercase().chars().collect();
 
@@ -131,8 +143,11 @@ impl enigma_machine {
             for rotor in &mut self.rotors {
                 let current_char = rotor.get_input_at_pin(*connector);
                 result = rotor.map(current_char);
+                println!("pos {} input char {}, output char {}, position {}", *connector, rotor.get_input_at_pin(*connector), result, rotor.output_pin_position.get(&result).unwrap());
                 connector = rotor.output_pin_position.get(&result).unwrap();
+                println!("connector {}", connector);
             }
+
 
             result = *self.reflector.mapping.get(&result).unwrap();
 
@@ -144,11 +159,11 @@ impl enigma_machine {
                 let rotor = &self.rotors[n];
                 let current_char = rotor.get_output_at_pin(*connector);
                 result = rotor.reflector_map(current_char);
-                //println!("char at current output: {} connects to {}", current_char, result);
                 connector = rotor.output_pin_position.get(&result).unwrap();
             }
 
             output.push(result.clone());
+            //self.rotate_rotors();
         }
 
         output.into_iter().collect()
@@ -175,6 +190,6 @@ pub fn create_machine() -> enigma_machine {
     let second_rotor = rotors::create_rotor("IIC".to_string(), IIC);
 
     let rs = vec![first_rotor, second_rotor];
-    let pboard = create_plugboard("src/plug2.board".to_string());
+    let pboard = create_plugboard("src/plug.board".to_string());
     enigma_machine{plugboard: pboard, rotors: rs, reflector: create_reflector()}
 }
