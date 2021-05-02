@@ -163,7 +163,7 @@ impl enigma_machine {
             }
 
             output.push(result.clone());
-            //self.rotate_rotors();
+            self.rotate_rotors();
         }
 
         output.into_iter().collect()
